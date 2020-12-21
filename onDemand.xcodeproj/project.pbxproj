@@ -15,6 +15,9 @@
 		5C95CAF425906A81008B34BB /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CAF325906A81008B34BB /* ReservationsViewController.swift */; };
 		5C95CAF725906A90008B34BB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CAF625906A90008B34BB /* AccountViewController.swift */; };
 		5C95CAFA25906AA7008B34BB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CAF925906AA7008B34BB /* SearchViewController.swift */; };
+		5C95CAFF259074BA008B34BB /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CAFE259074BA008B34BB /* Property.swift */; };
+		5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB01259077F5008B34BB /* PropertyCell.swift */; };
+		5C95CB0525908583008B34BB /* UIImageView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB0425908583008B34BB /* UIImageView+Load.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		5C95CAF325906A81008B34BB /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		5C95CAF625906A90008B34BB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		5C95CAF925906AA7008B34BB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5C95CAFE259074BA008B34BB /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		5C95CB01259077F5008B34BB /* PropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
+		5C95CB0425908583008B34BB /* UIImageView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Load.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				5C95CADD25906827008B34BB /* AppDelegate.swift */,
 				5C95CADF25906827008B34BB /* SceneDelegate.swift */,
 				5C95CAE325906827008B34BB /* Main.storyboard */,
+				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
+				5C95CAFE259074BA008B34BB /* Property.swift */,
+				5C95CB0425908583008B34BB /* UIImageView+Load.swift */,
 				5C95CAFC25906AAF008B34BB /* ViewControllers */,
 				5C95CAE625906829008B34BB /* Assets.xcassets */,
 				5C95CAE825906829008B34BB /* LaunchScreen.storyboard */,
@@ -151,10 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C95CB0525908583008B34BB /* UIImageView+Load.swift in Sources */,
+				5C95CAFF259074BA008B34BB /* Property.swift in Sources */,
 				5C95CAFA25906AA7008B34BB /* SearchViewController.swift in Sources */,
 				5C95CADE25906827008B34BB /* AppDelegate.swift in Sources */,
 				5C95CAE025906827008B34BB /* SceneDelegate.swift in Sources */,
 				5C95CAF725906A90008B34BB /* AccountViewController.swift in Sources */,
+				5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */,
 				5C95CAF425906A81008B34BB /* ReservationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
