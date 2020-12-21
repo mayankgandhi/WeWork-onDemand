@@ -30,8 +30,3 @@ struct Property: Hashable {
   }
 
 }
-
-struct Amenity {
-  let systemImage: String
-  let description: String
-}
