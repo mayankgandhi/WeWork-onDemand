@@ -9,20 +9,18 @@ import Foundation
 import UIKit
 
 class SearchCoordinator: Coordinator {
+    var navigationController: UINavigationController
 
-  var navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
 
-  init(navigationController: UINavigationController) {
-    self.navigationController = navigationController
-  }
-
-  func showDetail(for property: Property) {
-    let vc = SpaceDetailViewController.instantiate()
-    //Make iOS to build the views
-    _ = vc.view
-    vc.coordinator = self
-    vc.configure(for: property)
-    navigationController.pushViewController(vc, animated: true)
-  }
-
+    func showDetail(for property: Property) {
+        let vc = SpaceDetailViewController.instantiate()
+        // Make iOS to build the views
+        _ = vc.view
+        vc.coordinator = self
+        vc.configure(for: property)
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

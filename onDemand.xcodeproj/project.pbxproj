@@ -79,9 +79,8 @@
 				5C95CB0E2590892A008B34BB /* System */,
 				5C95CAE325906827008B34BB /* Main.storyboard */,
 				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
-				5C95CB262590A8FC008B34BB /* Coordinator.swift */,
-				5C95CB292590A95F008B34BB /* Storyboarded.swift */,
 				5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */,
+				5C95CB352590BB5B008B34BB /* Protocols */,
 				5C95CB0925908902008B34BB /* Models */,
 				5C95CB07259088F9008B34BB /* Extensions */,
 				5C95CAFC25906AAF008B34BB /* ViewControllers */,
@@ -127,6 +126,15 @@
 				5C95CADF25906827008B34BB /* SceneDelegate.swift */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		5C95CB352590BB5B008B34BB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5C95CB262590A8FC008B34BB /* Coordinator.swift */,
+				5C95CB292590A95F008B34BB /* Storyboarded.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

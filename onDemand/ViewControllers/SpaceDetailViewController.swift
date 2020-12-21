@@ -5,23 +5,28 @@
 //  Created by Mayank Gandhi on 12/21/20.
 //
 
+import MapKit
 import UIKit
 
 class SpaceDetailViewController: UIViewController, Storyboarded {
+    weak var coordinator: SearchCoordinator?
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var mapView: MKMapView!
 
-  weak var coordinator: SearchCoordinator?
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view.
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
 
-  func configure(for property: Property) {
-    navigationItem.title = property.title
-    titleLabel.text = property.title
-    descriptionLabel.text = property.description
-  }
-
+    func configure(for property: Property) {
+        navigationItem.title = property.title
+        imageView.load(url: URL(string: property.imageURL)!)
+        titleLabel.text = property.title
+        descriptionLabel.text = property.description
+        let annotation = property.getAnnotation()
+        mapView.addAnnotation(annotation)
+        mapView.showAnnotations([annotation], animated: true)
+    }
 }
