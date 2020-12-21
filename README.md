@@ -12,4 +12,4 @@ It is an extremely simplified version of the OnDemand app where the mapView and 
 
 
 The images used on the app are stock images that are randomly generated with a third party API. 
-![](https://im3.ezgif.com/tmp/ezgif-3-a0679dc3255f.gif)
+![](ezgif-3-a0679dc3255f.gif)
