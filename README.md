@@ -11,5 +11,5 @@ This project uses Storyboard to build the structure of the user interface and th
 It is an extremely simplified version of the OnDemand app where the mapView and the collectionview items are hooked and selecting any property will show a detailed view.
 
 
-The images used on the app are stock images that are randomly generated with a third party API. 
+#The images used on the app are stock images that are randomly generated with a third party API. 
 ![](ezgif-3-a0679dc3255f.gif)
