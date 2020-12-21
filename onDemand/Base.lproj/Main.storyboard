@@ -79,7 +79,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vhv-bZ-Xf2">
                                 <rect key="frame" x="20" y="399" width="129" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bPf-rI-cUC"/>
+                                    <constraint firstAttribute="height" constant="30" id="bx6-DP-Tew"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Spaces"/>
@@ -89,20 +89,30 @@
                                     <action selector="propertyTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hxz-Ef-0Z1"/>
                                 </connections>
                             </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="q2n-mI-Laf">
+                                <rect key="frame" x="0.0" y="64" width="414" height="321"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="321" id="jFL-04-De1"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Vhv-bZ-Xf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="355" id="Dbl-jl-wQy"/>
-                            <constraint firstItem="NiH-pf-6ov" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JQL-Pp-gjR"/>
-                            <constraint firstItem="NiH-pf-6ov" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U6W-7D-3sD"/>
-                            <constraint firstItem="NiH-pf-6ov" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eqy-KW-se7"/>
-                            <constraint firstItem="Vhv-bZ-Xf2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hXL-Zx-EEi"/>
-                            <constraint firstItem="NiH-pf-6ov" firstAttribute="top" secondItem="Vhv-bZ-Xf2" secondAttribute="bottom" constant="8" id="y3e-gz-qbj"/>
+                            <constraint firstItem="q2n-mI-Laf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6qR-xR-4Mk"/>
+                            <constraint firstItem="q2n-mI-Laf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="EtB-qQ-eUw"/>
+                            <constraint firstItem="q2n-mI-Laf" firstAttribute="leading" secondItem="NiH-pf-6ov" secondAttribute="leading" id="FLX-DW-B0j"/>
+                            <constraint firstItem="q2n-mI-Laf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P2j-01-CcB"/>
+                            <constraint firstItem="NiH-pf-6ov" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="PPh-yZ-4e8"/>
+                            <constraint firstItem="q2n-mI-Laf" firstAttribute="trailing" secondItem="NiH-pf-6ov" secondAttribute="trailing" id="abM-bQ-npf"/>
+                            <constraint firstItem="NiH-pf-6ov" firstAttribute="top" secondItem="Vhv-bZ-Xf2" secondAttribute="bottom" constant="8" id="bEI-1k-ySw"/>
+                            <constraint firstItem="Vhv-bZ-Xf2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oex-j6-6Q6"/>
+                            <constraint firstItem="Vhv-bZ-Xf2" firstAttribute="top" secondItem="q2n-mI-Laf" secondAttribute="bottom" constant="14" id="rne-2g-gPK"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="zXu-Eg-rQB"/>
                     <connections>
+                        <outlet property="mapView" destination="q2n-mI-Laf" id="uij-Fs-Ylk"/>
                         <outlet property="searchCollectionView" destination="NiH-pf-6ov" id="fOf-U4-5CJ"/>
                     </connections>
                 </viewController>

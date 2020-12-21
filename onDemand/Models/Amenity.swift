@@ -8,6 +8,6 @@
 import Foundation
 
 struct Amenity {
-  let systemImage: String
-  let description: String
+    let systemImage: String
+    let description: String
 }
