@@ -23,6 +23,7 @@
 		5C95CB2A2590A95F008B34BB /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB292590A95F008B34BB /* Storyboarded.swift */; };
 		5C95CB2D2590AA44008B34BB /* SpaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */; };
 		5C95CB302590AAFB008B34BB /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */; };
+		5C95CB392590C202008B34BB /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB382590C202008B34BB /* AccountCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5C95CB292590A95F008B34BB /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceDetailViewController.swift; sourceTree = "<group>"; };
 		5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		5C95CB382590C202008B34BB /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				5C95CB0E2590892A008B34BB /* System */,
 				5C95CAE325906827008B34BB /* Main.storyboard */,
 				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
+				5C95CB382590C202008B34BB /* AccountCell.swift */,
 				5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */,
 				5C95CB352590BB5B008B34BB /* Protocols */,
 				5C95CB0925908902008B34BB /* Models */,
@@ -212,6 +215,7 @@
 				5C95CAFF259074BA008B34BB /* Property.swift in Sources */,
 				5C95CB0C2590890D008B34BB /* Amenity.swift in Sources */,
 				5C95CAFA25906AA7008B34BB /* SearchViewController.swift in Sources */,
+				5C95CB392590C202008B34BB /* AccountCell.swift in Sources */,
 				5C95CB302590AAFB008B34BB /* SearchCoordinator.swift in Sources */,
 				5C95CADE25906827008B34BB /* AppDelegate.swift in Sources */,
 				5C95CB272590A8FC008B34BB /* Coordinator.swift in Sources */,
