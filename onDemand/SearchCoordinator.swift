@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+
+/// SearchCoordinator helps us separate the concerns between viewcontrollers
+/// In this particular case - Search Coordinator helps show detailView of the property space selected
 class SearchCoordinator: Coordinator {
     var navigationController: UINavigationController
 

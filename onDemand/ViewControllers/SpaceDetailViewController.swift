@@ -8,7 +8,9 @@
 import MapKit
 import UIKit
 
+/// `SpaceDetailViewController` shows in depth information of the property that was selected.
 class SpaceDetailViewController: UIViewController, Storyboarded {
+  
     weak var coordinator: SearchCoordinator?
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!

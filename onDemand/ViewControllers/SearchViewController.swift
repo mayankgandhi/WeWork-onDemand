@@ -8,17 +8,23 @@
 import MapKit
 import UIKit
 
+
+/// `SearchViewController` handles everything concerned with the search property tab in the TabView.
 class SearchViewController: UIViewController, UICollectionViewDelegate {
   var coordinator: SearchCoordinator?
   
   @IBOutlet var searchCollectionView: UICollectionView!
-  
+
+
+  /// Action triggered when the user selects preferred property type.
+  /// - Parameter sender: Segmented control that allows the user to switch between `spaces` and `rooms`
   @IBAction func propertyTypeChanged(_ sender: UISegmentedControl) {
     print(#function)
     performQuery(of: sender.selectedSegmentIndex == 0 ? .location : .room)
   }
   
   @IBOutlet var mapView: MKMapView!
+
   var annotations = [MapProperty]()
   
   enum Section: CaseIterable {
@@ -39,9 +45,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }
-}
 
-extension SearchViewController {
   func configureDataSource() {
     dataSource = UICollectionViewDiffableDataSource<Section, Property>(collectionView: searchCollectionView, cellProvider: { (collectionView, indexPath, property) -> UICollectionViewCell? in
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PropertyCell", for: indexPath) as! PropertyCell
@@ -49,11 +53,20 @@ extension SearchViewController {
       return cell
     })
   }
-  
+
   func performQuery(of type: PropertyType? = .location) {
     let properties = Property.allProperties.filter { (prop) -> Bool in
       prop.type == type
     }
+    performQueryonMap(for: properties)
+    performQueryonTableView(for: properties)
+  }
+
+}
+
+extension SearchViewController {
+
+  func performQueryonMap(for properties: [Property]) {
     mapView.removeAnnotations(annotations)
     annotations.removeAll()
     properties.forEach { prop in
@@ -61,7 +74,9 @@ extension SearchViewController {
     }
     mapView.addAnnotations(annotations)
     mapView.showAnnotations(annotations, animated: true)
-    
+  }
+
+  func performQueryonTableView(for properties: [Property]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Property>()
     snapshot.appendSections([.main])
     snapshot.appendItems(properties)

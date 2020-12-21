@@ -9,18 +9,6 @@ import CoreLocation
 import Foundation
 import MapKit
 
-enum PropertyType: CaseIterable {
-    case location, room
-}
-
-class MapProperty: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
-
-    init(_ coordinate: CLLocationCoordinate2D) {
-        self.coordinate = coordinate
-    }
-}
-
 struct Property: Hashable {
     let id = UUID()
     let type: PropertyType
@@ -67,4 +55,18 @@ struct Property: Hashable {
                  lat: 34.042660653219855,
                  long: -118.23353256137416),
     ]
+}
+
+
+class MapProperty: NSObject, MKAnnotation {
+  var coordinate: CLLocationCoordinate2D
+
+  init(_ coordinate: CLLocationCoordinate2D) {
+    self.coordinate = coordinate
+  }
+}
+
+
+enum PropertyType: CaseIterable {
+  case location, room
 }

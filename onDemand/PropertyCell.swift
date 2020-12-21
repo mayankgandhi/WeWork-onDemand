@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+/// `PropertyCell`: Custom CollectionView Cell for the Collection View in the SearchViewController that represent each property space.
 class PropertyCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
