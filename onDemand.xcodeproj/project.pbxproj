@@ -19,6 +19,7 @@
 		5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB01259077F5008B34BB /* PropertyCell.swift */; };
 		5C95CB0525908583008B34BB /* UIImageView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB0425908583008B34BB /* UIImageView+Load.swift */; };
 		5C95CB0C2590890D008B34BB /* Amenity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB0B2590890D008B34BB /* Amenity.swift */; };
+		5C95CB1225908F60008B34BB /* UICollectionView+ScrollNearest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB1125908F60008B34BB /* UICollectionView+ScrollNearest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5C95CB01259077F5008B34BB /* PropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCell.swift; sourceTree = "<group>"; };
 		5C95CB0425908583008B34BB /* UIImageView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Load.swift"; sourceTree = "<group>"; };
 		5C95CB0B2590890D008B34BB /* Amenity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenity.swift; sourceTree = "<group>"; };
+		5C95CB1125908F60008B34BB /* UICollectionView+ScrollNearest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ScrollNearest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				5C95CB0425908583008B34BB /* UIImageView+Load.swift */,
+				5C95CB1125908F60008B34BB /* UICollectionView+ScrollNearest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C95CB1225908F60008B34BB /* UICollectionView+ScrollNearest.swift in Sources */,
 				5C95CB0525908583008B34BB /* UIImageView+Load.swift in Sources */,
 				5C95CAFF259074BA008B34BB /* Property.swift in Sources */,
 				5C95CB0C2590890D008B34BB /* Amenity.swift in Sources */,

@@ -11,14 +11,35 @@ class SearchViewController: UIViewController {
 
   @IBOutlet weak var searchCollectionView: UICollectionView!
 
+  @IBAction func propertyTypeChanged(_ sender: UISegmentedControl) {
+    print(#function)
+    performQuery(of: sender.selectedSegmentIndex == 0 ? .location : .room)
+  }
 
-  var allProperties = [Property(type: .location,
-                                title: "1150 S Olive St",
-                                description: "WeWork Downtown Los Angeles",
-                                imageURL: "https://picsum.photos/220/301",
-                                lat: 34.03975457554052,
-                                long: -118.26118191629129),
-                       Property(type: .location, title: "1031 S Broadway", description: "Wework Los Angeles", imageURL: "https://picsum.photos/204/341", lat: 34.04072237799053, long: -118.25835261527308)]
+  var allProperties = [
+    Property(type: .location,
+             title: "1150 S Olive St",
+             description: "WeWork Downtown Los Angeles",
+             imageURL: "https://picsum.photos/220/301",
+             lat: 34.03975457554052,
+             long: -118.26118191629129),
+    Property(type: .location,
+             title: "1031 S Broadway",
+             description: "Wework Los Angeles",
+             imageURL: "https://picsum.photos/204/341",
+             lat: 34.04072237799053,
+             long: -118.25835261527308),
+    Property(type: .room, title: "Room 35C",
+             description: "555 West 5th Street, 35th Floor",
+             imageURL: "https://picsum.photos/221/356",
+             lat: 34.04072237791053,
+             long: -118.25835261527310),
+    Property(type: .room, title: "Room 36C",
+             description: "555 West 5th Street, 36th Floor",
+             imageURL: "https://picsum.photos/221/456",
+             lat: 34.04072237791053,
+             long: -118.25835261527310)
+  ]
 
   enum Section: CaseIterable {
     case main
@@ -58,6 +79,20 @@ extension SearchViewController {
     snapshot.appendSections([.main])
     snapshot.appendItems(properties)
     dataSource.apply(snapshot, animatingDifferences: true)
+  }
+
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    searchCollectionView.scrollToNearestVisibleCollectionViewCell()
+  }
+
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    if !decelerate {
+      searchCollectionView.scrollToNearestVisibleCollectionViewCell()
+    }
   }
 
 }

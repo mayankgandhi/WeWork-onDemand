@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NiH-pf-6ov">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="437" width="414" height="376"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N1N-SS-bM1">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N1N-SS-bM1">
                                     <size key="itemSize" width="269" height="229"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -28,7 +28,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PropertyCell" id="pB7-ze-6h4" customClass="PropertyCell" customModule="onDemand" customModuleProvider="target">
-                                        <rect key="frame" x="72.5" y="0.0" width="269" height="229"/>
+                                        <rect key="frame" x="0.0" y="73.5" width="269" height="229"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rJT-MW-lac">
                                             <rect key="frame" x="0.0" y="0.0" width="269" height="229"/>
@@ -76,14 +76,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vhv-bZ-Xf2">
+                                <rect key="frame" x="20" y="399" width="129" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bPf-rI-cUC"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Spaces"/>
+                                    <segment title="Rooms"/>
+                                </segments>
+                                <connections>
+                                    <action selector="propertyTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hxz-Ef-0Z1"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NiH-pf-6ov" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ETj-Mo-x6v"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NiH-pf-6ov" secondAttribute="bottom" id="Erm-ri-71e"/>
-                            <constraint firstItem="NiH-pf-6ov" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JIk-ic-mwi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NiH-pf-6ov" secondAttribute="trailing" id="YGQ-dh-s3S"/>
+                            <constraint firstItem="Vhv-bZ-Xf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="355" id="Dbl-jl-wQy"/>
+                            <constraint firstItem="NiH-pf-6ov" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JQL-Pp-gjR"/>
+                            <constraint firstItem="NiH-pf-6ov" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U6W-7D-3sD"/>
+                            <constraint firstItem="NiH-pf-6ov" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eqy-KW-se7"/>
+                            <constraint firstItem="Vhv-bZ-Xf2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hXL-Zx-EEi"/>
+                            <constraint firstItem="NiH-pf-6ov" firstAttribute="top" secondItem="Vhv-bZ-Xf2" secondAttribute="bottom" constant="8" id="y3e-gz-qbj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="zXu-Eg-rQB"/>
@@ -117,6 +132,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZIa-Jx-wGF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tav-pe-SdX">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" systemColor="opaqueSeparatorColor"/>
