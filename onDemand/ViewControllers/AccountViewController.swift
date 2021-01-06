@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, Storyboarded {
     enum Section: CaseIterable {
         case main
     }

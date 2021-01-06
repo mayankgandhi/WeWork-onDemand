@@ -8,13 +8,11 @@
 import MapKit
 import UIKit
 
-
 /// `SearchViewController` handles everything concerned with the search property tab in the TabView.
-class SearchViewController: UIViewController, UICollectionViewDelegate {
+class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboarded {
   var coordinator: SearchCoordinator?
   
   @IBOutlet var searchCollectionView: UICollectionView!
-
 
   /// Action triggered when the user selects preferred property type.
   /// - Parameter sender: Segmented control that allows the user to switch between `spaces` and `rooms`

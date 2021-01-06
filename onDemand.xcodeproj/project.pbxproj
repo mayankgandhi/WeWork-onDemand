@@ -23,6 +23,8 @@
 		5C95CB2D2590AA44008B34BB /* SpaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */; };
 		5C95CB302590AAFB008B34BB /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */; };
 		5C95CB392590C202008B34BB /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB382590C202008B34BB /* AccountCell.swift */; };
+		5CA7BE2425A618F3001FC014 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */; };
+		5CA7BE2825A61910001FC014 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7BE2725A61910001FC014 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceDetailViewController.swift; sourceTree = "<group>"; };
 		5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		5C95CB382590C202008B34BB /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5CA7BE2725A61910001FC014 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 				5C95CAE325906827008B34BB /* Main.storyboard */,
 				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
 				5C95CB382590C202008B34BB /* AccountCell.swift */,
+				5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */,
 				5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */,
 				5C95CB352590BB5B008B34BB /* Protocols */,
 				5C95CB0925908902008B34BB /* Models */,
@@ -97,6 +102,7 @@
 			children = (
 				5C95CAF325906A81008B34BB /* ReservationsViewController.swift */,
 				5C95CAF625906A90008B34BB /* AccountViewController.swift */,
+				5CA7BE2725A61910001FC014 /* RootViewController.swift */,
 				5C95CAF925906AA7008B34BB /* SearchViewController.swift */,
 				5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */,
 			);
@@ -212,6 +218,7 @@
 				5C95CAFF259074BA008B34BB /* Property.swift in Sources */,
 				5C95CAFA25906AA7008B34BB /* SearchViewController.swift in Sources */,
 				5C95CB392590C202008B34BB /* AccountCell.swift in Sources */,
+				5CA7BE2825A61910001FC014 /* RootViewController.swift in Sources */,
 				5C95CB302590AAFB008B34BB /* SearchCoordinator.swift in Sources */,
 				5C95CADE25906827008B34BB /* AppDelegate.swift in Sources */,
 				5C95CB272590A8FC008B34BB /* Coordinator.swift in Sources */,
@@ -219,6 +226,7 @@
 				5C95CAF725906A90008B34BB /* AccountViewController.swift in Sources */,
 				5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */,
 				5C95CAF425906A81008B34BB /* ReservationsViewController.swift in Sources */,
+				5CA7BE2425A618F3001FC014 /* MainCoordinator.swift in Sources */,
 				5C95CB2A2590A95F008B34BB /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

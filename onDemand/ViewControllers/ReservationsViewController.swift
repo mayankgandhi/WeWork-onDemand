@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReservationsViewController: UIViewController {
+class ReservationsViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
