@@ -11,15 +11,6 @@ import UIKit
 /// `SearchViewController` handles everything concerned with the search property tab in the TabView.
 class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboarded {
   var coordinator: SearchCoordinator?
-  
-
-  /// Action triggered when the user selects preferred property type.
-  /// - Parameter sender: Segmented control that allows the user to switch between `spaces` and `rooms`
-  func propertyTypeChanged(_ sender: UISegmentedControl) {
-    print(#function)
-    performQuery(of: sender.selectedSegmentIndex == 0 ? .location : .room)
-  }
-  
 
   var annotations = [MapProperty]()
   
@@ -29,6 +20,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
 
   var searchCollectionView: UICollectionView!
   var dataSource: UICollectionViewDiffableDataSource<Section, Property>!
+  var searchMapView: MKMapView!
+  var placeTypeSegmentedControl: UISegmentedControl {
+    let segmentItems = ["First", "Second"]
+    let segmentedControl = UISegmentedControl(items: segmentItems)
+    segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+    segmentedControl.addTarget(self, action: #selector(segmentControl(_:)), for: .valueChanged)
+    segmentedControl.selectedSegmentIndex = 1
+    return segmentedControl
+  }
   
   override func viewDidLoad() {
     print(#function)
@@ -41,13 +41,27 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
   }
 
   func layout() {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    view.backgroundColor = .white
+
+    let collectionViewLayout = UICollectionViewFlowLayout()
+    collectionViewLayout.scrollDirection = .horizontal
+
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+    collectionView.backgroundColor = .white
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.delegate = self
     collectionView.register(PropertyCell.self, forCellWithReuseIdentifier: PropertyCell.reuseID)
     self.searchCollectionView = collectionView
 
-    let stackView = UIStackView(arrangedSubviews: [searchCollectionView!])
+    let mapView = MKMapView(frame: .zero)
+    mapView.translatesAutoresizingMaskIntoConstraints = false
+    self.searchMapView = mapView
+
+    let stackView = UIStackView(arrangedSubviews: [searchMapView,placeTypeSegmentedControl,searchCollectionView])
+    stackView.axis = .vertical
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.distribution = .fill
+    stackView.spacing = 20
     view.addSubview(stackView)
 
     NSLayoutConstraint.activate([
@@ -55,6 +69,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
       stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
       stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
       stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+      searchMapView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
     ])
   }
   
@@ -67,7 +82,21 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     print(self.searchCollectionView!.numberOfItems(inSection: 0))
   }
 
+  @objc func segmentControl(_ segmentedControl: UISegmentedControl) {
+    switch (segmentedControl.selectedSegmentIndex) {
+    case 0:
+      // First segment tapped
+      performQuery(of: .location)
+    case 1:
+      // Second segment tapped
+      performQuery(of: .room)
+    default:
+      break
+    }
+  }
+
   func configureDataSource() {
+
     dataSource = UICollectionViewDiffableDataSource<Section, Property>(collectionView: searchCollectionView!, cellProvider: { (collectionView, indexPath, property) -> UICollectionViewCell? in
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PropertyCell", for: indexPath) as! PropertyCell
       cell.configure(with: property)
@@ -76,13 +105,11 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
   }
 
   func performQuery(of type: PropertyType? = .location) {
-    print(#function)
-
     let properties = Property.allProperties.filter { (prop) -> Bool in
       prop.type == type
     }
     print(properties.count)
-//    performQueryonMap(for: properties)
+    performQueryonMap(for: properties)
     performQueryonTableView(for: properties)
   }
 
@@ -90,15 +117,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
 
 extension SearchViewController {
 
-//  func performQueryonMap(for properties: [Property]) {
-//    mapView.removeAnnotations(annotations)
-//    annotations.removeAll()
-//    properties.forEach { prop in
-//      annotations.append(prop.getAnnotation())
-//    }
-//    mapView.addAnnotations(annotations)
-//    mapView.showAnnotations(annotations, animated: true)
-//  }
+  func performQueryonMap(for properties: [Property]) {
+    searchMapView.removeAnnotations(annotations)
+    annotations.removeAll()
+    properties.forEach { prop in
+      annotations.append(prop.getAnnotation())
+    }
+    searchMapView.addAnnotations(annotations)
+    searchMapView.showAnnotations(annotations, animated: true)
+  }
 
   func performQueryonTableView(for properties: [Property]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Property>()
@@ -111,4 +138,13 @@ extension SearchViewController {
     let propertySelected: Property = dataSource.itemIdentifier(for: indexPath)!
     coordinator?.showDetail(for: propertySelected)
   }
+
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    CGSize(width: searchCollectionView.frame.width/1.5, height: searchCollectionView.frame.height/1.5)
+  }
+
 }

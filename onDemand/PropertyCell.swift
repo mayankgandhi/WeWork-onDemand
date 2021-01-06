@@ -24,6 +24,7 @@ class PropertyCell: UICollectionViewCell {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.sizeToFit()
+    label.font = .preferredFont(forTextStyle: .title2)
     return label
   }()
 
@@ -31,6 +32,7 @@ class PropertyCell: UICollectionViewCell {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.sizeToFit()
+    label.font = .preferredFont(forTextStyle: .title2)
     return label
   }()
 
