@@ -9,13 +9,14 @@ import UIKit
 
 class RootViewController: UITabBarController, Storyboarded {
 
+  var coordinator: MainCoordinator?
+
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = UIColor.white
     // Do any additional setup after loading the view.
     addTabBarItems()
     print("We out here \(self)")
-
   }
 
   private func addTabBarItems() {
@@ -36,18 +37,5 @@ class RootViewController: UITabBarController, Storyboarded {
     
     setViewControllers([searchVC, reservationsVC, accountVC], animated: true)
   }
-
-
-
-
-  /*
-   // MARK: - Navigation
-
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
 
 }

@@ -84,12 +84,11 @@
 				5C95CAE325906827008B34BB /* Main.storyboard */,
 				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
 				5C95CB382590C202008B34BB /* AccountCell.swift */,
-				5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */,
-				5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */,
-				5C95CB352590BB5B008B34BB /* Protocols */,
+				5CA7BE2D25A61EB7001FC014 /* Coordinators */,
 				5C95CB0925908902008B34BB /* Models */,
-				5C95CB07259088F9008B34BB /* Extensions */,
 				5C95CAFC25906AAF008B34BB /* ViewControllers */,
+				5C95CB352590BB5B008B34BB /* Protocols */,
+				5C95CB07259088F9008B34BB /* Extensions */,
 				5C95CAE625906829008B34BB /* Assets.xcassets */,
 				5C95CAE825906829008B34BB /* LaunchScreen.storyboard */,
 				5C95CAEB25906829008B34BB /* Info.plist */,
@@ -141,6 +140,15 @@
 				5C95CB292590A95F008B34BB /* Storyboarded.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5CA7BE2D25A61EB7001FC014 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */,
+				5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
