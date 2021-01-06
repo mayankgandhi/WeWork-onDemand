@@ -19,3 +19,15 @@ class AccountCell: UITableViewCell {
         titleLabel.text = item.title
     }
 }
+
+
+class AccountProgrammaticCell: UITableViewCell {
+
+  static let reuseID = "AccountProgrammaticCell"
+
+  func configure(for item: AccountViewController.Item) {
+    imageView?.image = UIImage(systemName: item.systemImage)
+    textLabel?.text = item.title
+  }
+
+}

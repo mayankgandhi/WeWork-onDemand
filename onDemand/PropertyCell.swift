@@ -17,12 +17,15 @@ class PropertyCell: UICollectionViewCell {
     thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
     thumbnailImage.contentMode = .scaleAspectFill
     thumbnailImage.clipsToBounds = true
+    thumbnailImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
     return thumbnailImage
   }()
 
   fileprivate var titleLabel: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
     label.sizeToFit()
     label.font = .preferredFont(forTextStyle: .title2)
     return label
@@ -32,6 +35,8 @@ class PropertyCell: UICollectionViewCell {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.sizeToFit()
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
     label.font = .preferredFont(forTextStyle: .title2)
     return label
   }()
@@ -40,11 +45,13 @@ class PropertyCell: UICollectionViewCell {
     super.init(frame: .zero)
 
     let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, descriptionLabel])
+    stackView.alignment = .leading
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
-    stackView.distribution = .fill
-
+    stackView.clipsToBounds = true
+    stackView.spacing = 10
     contentView.addSubview(stackView)
+    contentView.backgroundColor = .cyan
 
     NSLayoutConstraint.activate([
       stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -52,7 +59,6 @@ class PropertyCell: UICollectionViewCell {
       stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
       stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
     ])
-    
   }
 
   required init?(coder: NSCoder) {
@@ -64,4 +70,5 @@ class PropertyCell: UICollectionViewCell {
     titleLabel.text = property.title
     descriptionLabel.text = property.description
   }
+
 }

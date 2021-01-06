@@ -47,8 +47,10 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     collectionViewLayout.scrollDirection = .horizontal
 
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-    collectionView.backgroundColor = .white
+    collectionView.backgroundColor = .red
     collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
     collectionView.delegate = self
     collectionView.register(PropertyCell.self, forCellWithReuseIdentifier: PropertyCell.reuseID)
     self.searchCollectionView = collectionView
@@ -61,7 +63,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     stackView.axis = .vertical
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.distribution = .fill
-    stackView.spacing = 20
     view.addSubview(stackView)
 
     NSLayoutConstraint.activate([
@@ -96,7 +97,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
   }
 
   func configureDataSource() {
-
     dataSource = UICollectionViewDiffableDataSource<Section, Property>(collectionView: searchCollectionView!, cellProvider: { (collectionView, indexPath, property) -> UICollectionViewCell? in
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PropertyCell", for: indexPath) as! PropertyCell
       cell.configure(with: property)
@@ -104,18 +104,18 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     })
   }
 
+}
+
+extension SearchViewController {
+
   func performQuery(of type: PropertyType? = .location) {
     let properties = Property.allProperties.filter { (prop) -> Bool in
       prop.type == type
     }
     print(properties.count)
     performQueryonMap(for: properties)
-    performQueryonTableView(for: properties)
+    performQueryOnCollectionView(for: properties)
   }
-
-}
-
-extension SearchViewController {
 
   func performQueryonMap(for properties: [Property]) {
     searchMapView.removeAnnotations(annotations)
@@ -127,24 +127,25 @@ extension SearchViewController {
     searchMapView.showAnnotations(annotations, animated: true)
   }
 
-  func performQueryonTableView(for properties: [Property]) {
+  func performQueryOnCollectionView(for properties: [Property]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Property>()
     snapshot.appendSections([.main])
     snapshot.appendItems(properties)
     dataSource.apply(snapshot, animatingDifferences: true)
   }
-  
+
+}
+
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+
   func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let propertySelected: Property = dataSource.itemIdentifier(for: indexPath)!
     coordinator?.showDetail(for: propertySelected)
   }
 
-}
-
-extension SearchViewController: UICollectionViewDelegateFlowLayout {
-
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    CGSize(width: searchCollectionView.frame.width/1.5, height: searchCollectionView.frame.height/1.5)
+    CGSize(width: searchCollectionView.frame.width/1.5, height: searchCollectionView.frame.height/1.25)
   }
 
 }

@@ -22,18 +22,18 @@ class SearchCoordinator: Coordinator {
   }
 
   func start() {
-    let vc = SpaceDetailViewController.instantiate()
-    vc.coordinator = self
-    navigationController.pushViewController(vc, animated: false)
+//    let vc = SpaceDetailViewController.instantiate()
+//    vc.coordinator = self
+//    navigationController.pushViewController(vc, animated: false)
   }
 
   func showDetail(for property: Property) {
     let vc = SpaceDetailViewController.instantiate()
-
     // Make iOS to build the views
     _ = vc.view
     vc.coordinator = self
     vc.configure(for: property)
     navigationController.pushViewController(vc, animated: true)
   }
+  
 }
