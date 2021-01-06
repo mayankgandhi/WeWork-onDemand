@@ -57,16 +57,14 @@ struct Property: Hashable {
     ]
 }
 
-
 class MapProperty: NSObject, MKAnnotation {
-  var coordinate: CLLocationCoordinate2D
+    var coordinate: CLLocationCoordinate2D
 
-  init(_ coordinate: CLLocationCoordinate2D) {
-    self.coordinate = coordinate
-  }
+    init(_ coordinate: CLLocationCoordinate2D) {
+        self.coordinate = coordinate
+    }
 }
 
-
 enum PropertyType: CaseIterable {
-  case location, room
+    case location, room
 }

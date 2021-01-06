@@ -11,23 +11,8 @@ import UIKit
 class AccountCell: UITableViewCell {
     static let reuseID = "AccountCell"
 
-    @IBOutlet var itemImageView: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-
     func configure(for item: AccountViewController.Item) {
-        itemImageView.image = UIImage(systemName: item.systemImage)
-        titleLabel.text = item.title
+        imageView?.image = UIImage(systemName: item.systemImage)
+        textLabel?.text = item.title
     }
-}
-
-
-class AccountProgrammaticCell: UITableViewCell {
-
-  static let reuseID = "AccountProgrammaticCell"
-
-  func configure(for item: AccountViewController.Item) {
-    imageView?.image = UIImage(systemName: item.systemImage)
-    textLabel?.text = item.title
-  }
-
 }
