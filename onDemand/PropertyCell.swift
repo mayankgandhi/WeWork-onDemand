@@ -7,16 +7,59 @@
 
 import UIKit
 
-
 /// `PropertyCell`: Custom CollectionView Cell for the Collection View in the SearchViewController that represent each property space.
 class PropertyCell: UICollectionViewCell {
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
 
-    func configure(with property: Property) {
-        imageView.load(url: URL(string: property.imageURL)!)
-        titleLabel.text = property.title
-        descriptionLabel.text = property.description
-    }
+  static let reuseID = "PropertyCell"
+
+  private var imageView: UIImageView = {
+    let thumbnailImage = UIImageView()
+    thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
+    thumbnailImage.contentMode = .scaleAspectFill
+    thumbnailImage.clipsToBounds = true
+    return thumbnailImage
+  }()
+
+  fileprivate var titleLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.sizeToFit()
+    return label
+  }()
+
+  fileprivate var descriptionLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.sizeToFit()
+    return label
+  }()
+
+  override init(frame: CGRect) {
+    super.init(frame: .zero)
+
+    let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, descriptionLabel])
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.axis = .vertical
+    stackView.distribution = .fill
+
+    contentView.addSubview(stackView)
+
+    NSLayoutConstraint.activate([
+      stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+      stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+      stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+    ])
+    
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  func configure(with property: Property) {
+    imageView.load(url: URL(string: property.imageURL)!)
+    titleLabel.text = property.title
+    descriptionLabel.text = property.description
+  }
 }
