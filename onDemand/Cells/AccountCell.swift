@@ -16,3 +16,4 @@ class AccountCell: UITableViewCell {
         textLabel?.text = item.title
     }
 }
+

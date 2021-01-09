@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C6A136825A9F72800655C42 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A136725A9F72800655C42 /* Filter.swift */; };
+		5C6A136B25A9F76800655C42 /* FilterOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */; };
 		5C95CADE25906827008B34BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CADD25906827008B34BB /* AppDelegate.swift */; };
 		5C95CAE025906827008B34BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CADF25906827008B34BB /* SceneDelegate.swift */; };
 		5C95CAE525906827008B34BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C95CAE325906827008B34BB /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C6A136725A9F72800655C42 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionCell.swift; sourceTree = "<group>"; };
 		5C95CADA25906827008B34BB /* onDemand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onDemand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C95CADD25906827008B34BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C95CADF25906827008B34BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C6A136D25A9F7AE00655C42 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
+				5C95CB382590C202008B34BB /* AccountCell.swift */,
+				5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		5C95CAD125906827008B34BB = {
 			isa = PBXGroup;
 			children = (
@@ -82,11 +96,10 @@
 			children = (
 				5C95CB0E2590892A008B34BB /* System */,
 				5C95CAE325906827008B34BB /* Main.storyboard */,
-				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
-				5C95CB382590C202008B34BB /* AccountCell.swift */,
 				5CA7BE2D25A61EB7001FC014 /* Coordinators */,
 				5C95CB0925908902008B34BB /* Models */,
 				5C95CAFC25906AAF008B34BB /* ViewControllers */,
+				5C6A136D25A9F7AE00655C42 /* Cells */,
 				5C95CB352590BB5B008B34BB /* Protocols */,
 				5C95CB07259088F9008B34BB /* Extensions */,
 				5C95CAE625906829008B34BB /* Assets.xcassets */,
@@ -120,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				5C95CAFE259074BA008B34BB /* Property.swift */,
+				5C6A136725A9F72800655C42 /* Filter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +239,7 @@
 				5C95CB0525908583008B34BB /* UIImageView+Load.swift in Sources */,
 				5C95CAFF259074BA008B34BB /* Property.swift in Sources */,
 				5C95CAFA25906AA7008B34BB /* SearchViewController.swift in Sources */,
+				5C6A136B25A9F76800655C42 /* FilterOptionCell.swift in Sources */,
 				5C95CB392590C202008B34BB /* AccountCell.swift in Sources */,
 				5CA7BE2825A61910001FC014 /* RootViewController.swift in Sources */,
 				5C95CB302590AAFB008B34BB /* SearchCoordinator.swift in Sources */,
@@ -234,6 +249,7 @@
 				5C95CAF725906A90008B34BB /* AccountViewController.swift in Sources */,
 				5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */,
 				5C95CAF425906A81008B34BB /* ReservationsViewController.swift in Sources */,
+				5C6A136825A9F72800655C42 /* Filter.swift in Sources */,
 				5CA7BE2425A618F3001FC014 /* MainCoordinator.swift in Sources */,
 				5C95CB2A2590A95F008B34BB /* Storyboarded.swift in Sources */,
 			);

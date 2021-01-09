@@ -11,8 +11,8 @@ import UIKit
 /// SearchCoordinator helps us separate the concerns between viewcontrollers
 /// In this particular case - Search Coordinator helps show detailView of the property space selected
 class SearchCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
 
+    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
@@ -33,4 +33,11 @@ class SearchCoordinator: Coordinator {
         vc.configure(for: property)
         navigationController.pushViewController(vc, animated: true)
     }
+
+  func getProperties(of type: PropertyType) -> [Property] {
+    Property.allProperties.filter { (prop) -> Bool in
+      prop.type == type
+    }
+  }
+
 }
