@@ -9,7 +9,6 @@ import UIKit
 
 /// `PropertyCell`: Custom CollectionView Cell for the Collection View in the SearchViewController that represent each property space.
 class PropertyCell: UICollectionViewCell {
-  static let reuseID = "PropertyCell"
 
   private var imageView: UIImageView = {
     let thumbnailImage = UIImageView()

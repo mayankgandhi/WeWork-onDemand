@@ -34,7 +34,7 @@ extension AccountViewController {
         navigationItem.title = "List"
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.reuseID)
+        tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         accountTableView = tableView
@@ -49,7 +49,7 @@ extension AccountViewController {
 
     func configureDataSource() {
         dataSource = UITableViewDiffableDataSource<Section, Item>(tableView: accountTableView, cellProvider: { (tableView, indexPath, item) -> UITableViewCell? in
-            let cell = tableView.dequeueReusableCell(withIdentifier: AccountCell.reuseID, for: indexPath) as! AccountCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AccountCell.identifier, for: indexPath) as! AccountCell
             cell.configure(for: item)
             return cell
         })

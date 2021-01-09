@@ -10,7 +10,6 @@ import UIKit
 
 /// `FilterOptionCell` is the cell that is populated in the top section of the collectionView in the Search View Controller.
 class FilterOptionCell: UICollectionViewCell {
-  static let reuseID = "PropertyCell"
 
   fileprivate var titleLabel: UILabel = {
     let label = UILabel()
@@ -31,7 +30,7 @@ class FilterOptionCell: UICollectionViewCell {
     stackView.axis = .vertical
     stackView.clipsToBounds = true
     contentView.addSubview(stackView)
-    contentView.backgroundColor = .cyan
+    contentView.backgroundColor = .red
     contentView.layer.cornerRadius = 10
 
     NSLayoutConstraint.activate([

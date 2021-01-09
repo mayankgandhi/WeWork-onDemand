@@ -23,11 +23,11 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
   var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
   var searchMapView: MKMapView!
   var placeTypeSegmentedControl: UISegmentedControl {
-    let segmentItems = ["First", "Second"]
+    let segmentItems = ["Spaces", "Rooms"]
     let segmentedControl = UISegmentedControl(items: segmentItems)
     segmentedControl.translatesAutoresizingMaskIntoConstraints = false
     segmentedControl.addTarget(self, action: #selector(segmentControl(_:)), for: .valueChanged)
-    segmentedControl.selectedSegmentIndex = 1
+    segmentedControl.selectedSegmentIndex = 0
     return segmentedControl
   }
 
@@ -41,20 +41,43 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     performQuery()
   }
 
+  func createPerSectionLayout() -> UICollectionViewLayout {
+    let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
+                                                        layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+
+      let columns = sectionIndex == 0 ? 2 : 4
+
+      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                            heightDimension: .fractionalHeight(1.0))
+      let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                             heightDimension: .absolute(250))
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                     subitem: item,
+                                                     count: columns)
+
+      let section = NSCollectionLayoutSection(group: group)
+
+      return section
+    }
+    let config = UICollectionViewCompositionalLayoutConfiguration()
+    config.interSectionSpacing = 20
+    config.scrollDirection = .horizontal
+    layout.configuration = config
+    return layout
+  }
+
   func layout() {
     view.backgroundColor = .white
 
-    let collectionViewLayout = UICollectionViewFlowLayout()
-    collectionViewLayout.scrollDirection = .horizontal
-
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-    collectionView.backgroundColor = .red
-    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createPerSectionLayout())
+    collectionView.backgroundColor = .systemBackground
     collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
     collectionView.delegate = self
-    collectionView.register(PropertyCell.self, forCellWithReuseIdentifier: PropertyCell.reuseID)
-    collectionView.register(FilterOptionCell.self, forCellWithReuseIdentifier: FilterOptionCell.reuseID)
+    collectionView.register(PropertyCell.self, forCellWithReuseIdentifier: PropertyCell.identifier)
+//    collectionView.register(FilterOptionCell.self, forCellWithReuseIdentifier: FilterOptionCell.reuseID)
 
     searchCollectionView = collectionView
 
@@ -106,33 +129,36 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
   }
 
   func configureDataSource() {
+
     dataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: searchCollectionView, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
 
-      if let cell = collectionView.dequeueReusableCell(
-          withReuseIdentifier: PropertyCell.reuseID,
-          for: indexPath) as? PropertyCell {
-        if let property = item as? Property {
-          cell.configure(with: property)
-          return cell
-        }
+      if let property = item as? Property {
+        let cell = collectionView.dequeueReusableCell(
+          withReuseIdentifier: PropertyCell.identifier,
+          for: indexPath) as? PropertyCell
+        cell?.configure(with: property)
+        return cell
+
       }
 
-      if let cell = collectionView.dequeueReusableCell(
-          withReuseIdentifier: FilterOptionCell.reuseID,
-          for: indexPath) as? FilterOptionCell {
-        if let filter = item as? Filter {
-          cell.configure(with: filter)
-          return cell
-        }
-      }
+      if let filter = item as? Filter {
+        let cell = collectionView.dequeueReusableCell(
+          withReuseIdentifier: FilterOptionCell.identifier,
+          for: indexPath) as? FilterOptionCell
+        cell?.configure(with: filter)
+        return cell
 
+      }
       return nil
     })
+
   }
+
 
 }
 
 extension SearchViewController {
+
   func performQuery(of type: PropertyType = .location) {
     if let properties = coordinator?.getProperties(of: type) {
       performQueryonMap(for: properties)
@@ -153,13 +179,15 @@ extension SearchViewController {
   func performQueryOnCollectionView(for properties: [Property]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
     snapshot.appendSections(Section.allCases)
-    snapshot.appendItems(Filter.allFilters, toSection: .options)
     snapshot.appendItems(properties, toSection: .main)
+    snapshot.appendItems(Property.allProperties, toSection: .options)
     dataSource.apply(snapshot, animatingDifferences: true)
   }
+
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
+
   func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let propertySelected: Property = dataSource.itemIdentifier(for: indexPath)! as! Property
     coordinator?.showDetail(for: propertySelected)
@@ -168,4 +196,5 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
     CGSize(width: searchCollectionView.frame.width / 1.1, height: searchCollectionView.frame.height / 1.1)
   }
+
 }

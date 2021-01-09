@@ -27,6 +27,7 @@
 		5C95CB392590C202008B34BB /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB382590C202008B34BB /* AccountCell.swift */; };
 		5CA7BE2425A618F3001FC014 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */; };
 		5CA7BE2825A61910001FC014 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7BE2725A61910001FC014 /* RootViewController.swift */; };
+		5CB6EE3225AA0EC800FC2BF9 /* NSObject+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6EE3125AA0EC800FC2BF9 /* NSObject+Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		5C95CB382590C202008B34BB /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5CA7BE2725A61910001FC014 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		5CB6EE3125AA0EC800FC2BF9 /* NSObject+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				5C95CB0425908583008B34BB /* UIImageView+Load.swift */,
+				5CB6EE3125AA0EC800FC2BF9 /* NSObject+Identifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				5C95CB272590A8FC008B34BB /* Coordinator.swift in Sources */,
 				5C95CAE025906827008B34BB /* SceneDelegate.swift in Sources */,
 				5C95CAF725906A90008B34BB /* AccountViewController.swift in Sources */,
+				5CB6EE3225AA0EC800FC2BF9 /* NSObject+Identifier.swift in Sources */,
 				5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */,
 				5C95CAF425906A81008B34BB /* ReservationsViewController.swift in Sources */,
 				5C6A136825A9F72800655C42 /* Filter.swift in Sources */,
