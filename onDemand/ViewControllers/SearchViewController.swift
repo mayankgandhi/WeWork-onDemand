@@ -42,27 +42,24 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
   }
 
   func createPerSectionLayout() -> UICollectionViewLayout {
+
     let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
                                                         layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-
       let columns = sectionIndex == 0 ? 2 : 4
-
       let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                             heightDimension: .fractionalHeight(1.0))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
       let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                              heightDimension: .absolute(250))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                      subitem: item,
                                                      count: columns)
-
       let section = NSCollectionLayoutSection(group: group)
-
       return section
     }
+
     let config = UICollectionViewCompositionalLayoutConfiguration()
-    config.interSectionSpacing = 20
+    config.interSectionSpacing = 200
     config.scrollDirection = .horizontal
     layout.configuration = config
     return layout
@@ -77,7 +74,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
 
     collectionView.delegate = self
     collectionView.register(PropertyCell.self, forCellWithReuseIdentifier: PropertyCell.identifier)
-//    collectionView.register(FilterOptionCell.self, forCellWithReuseIdentifier: FilterOptionCell.reuseID)
+    //    collectionView.register(FilterOptionCell.self, forCellWithReuseIdentifier: FilterOptionCell.reuseID)
 
     searchCollectionView = collectionView
 
@@ -191,10 +188,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let propertySelected: Property = dataSource.itemIdentifier(for: indexPath)! as! Property
     coordinator?.showDetail(for: propertySelected)
-  }
-
-  func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
-    CGSize(width: searchCollectionView.frame.width / 1.1, height: searchCollectionView.frame.height / 1.1)
   }
 
 }
