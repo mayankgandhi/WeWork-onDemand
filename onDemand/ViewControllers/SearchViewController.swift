@@ -41,30 +41,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     performQuery()
   }
 
-//  func createPerSectionLayout() -> UICollectionViewLayout {
-//
-//    let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
-//                                                        layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-//      let columns = sectionIndex == 0 ? 2 : 4
-//      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                            heightDimension: .fractionalHeight(1.0))
-//      let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                             heightDimension: .absolute(250))
-//      let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-//                                                     subitem: item,
-//                                                     count: columns)
-//      let section = NSCollectionLayoutSection(group: group)
-//      return section
-//    }
-//
-//    let config = UICollectionViewCompositionalLayoutConfiguration()
-//    config.interSectionSpacing = 200
-//    config.scrollDirection = .horizontal
-//    layout.configuration = config
-//    return layout
-//  }
-
   func generateLayout() -> UICollectionViewLayout {
     //1
     let itemSize = NSCollectionLayoutSize(
@@ -72,14 +48,14 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
       heightDimension: .fractionalHeight(1.0))
     let propertyView = NSCollectionLayoutItem(layoutSize: itemSize)
     propertyView.contentInsets = NSDirectionalEdgeInsets(
-      top: 2,
-      leading: 2,
-      bottom: 2,
-      trailing: 2)
+      top: .contentInset,
+      leading: .contentInset,
+      bottom: .contentInset,
+      trailing: .contentInset)
     //2
     let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(2/3),
-      heightDimension: .fractionalHeight(1))
+      widthDimension: .fractionalWidth(4/5),
+      heightDimension: .fractionalHeight(4/5))
     let group = NSCollectionLayoutGroup.horizontal(
       layoutSize: groupSize,
       subitem: propertyView,
@@ -87,6 +63,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     //3
     let section = NSCollectionLayoutSection(group: group)
     let layout = UICollectionViewCompositionalLayout(section: section)
+    let config = UICollectionViewCompositionalLayoutConfiguration()
+    config.scrollDirection = .horizontal
+    layout.configuration = config
     return layout
   }
 
@@ -202,7 +181,7 @@ extension SearchViewController {
   func performQueryOnCollectionView(for properties: [Property]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
     snapshot.appendSections(Section.allCases)
-    snapshot.appendItems(properties, toSection: .main)
+//    snapshot.appendItems(properties, toSection: .main)
     snapshot.appendItems(Property.allProperties, toSection: .options)
     dataSource.apply(snapshot, animatingDifferences: true)
   }

@@ -13,7 +13,7 @@ class PropertyCell: UICollectionViewCell {
   private var imageView: UIImageView = {
     let thumbnailImage = UIImageView()
     thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
-    thumbnailImage.contentMode = .scaleAspectFit
+    thumbnailImage.contentMode = .scaleAspectFill
     thumbnailImage.clipsToBounds = true
     thumbnailImage.layer.cornerRadius = 10
     return thumbnailImage
@@ -47,6 +47,8 @@ class PropertyCell: UICollectionViewCell {
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
     stackView.clipsToBounds = true
+    stackView.spacing = 2
+    stackView.distribution = .equalSpacing
     contentView.addSubview(stackView)
     contentView.backgroundColor = .cyan
     contentView.layer.cornerRadius = 10
@@ -57,6 +59,8 @@ class PropertyCell: UICollectionViewCell {
       stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
       stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
       imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+//      titleLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: .contentInset),
+//      descriptionLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: .contentInset),
     ])
   }
 
