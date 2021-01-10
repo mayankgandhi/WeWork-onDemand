@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C32084725AA7D480098AA60 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C32084625AA7D480098AA60 /* Layout.swift */; };
 		5C6A136825A9F72800655C42 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A136725A9F72800655C42 /* Filter.swift */; };
 		5C6A136B25A9F76800655C42 /* FilterOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */; };
 		5C95CADE25906827008B34BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CADD25906827008B34BB /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C32084625AA7D480098AA60 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		5C6A136725A9F72800655C42 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionCell.swift; sourceTree = "<group>"; };
 		5C95CADA25906827008B34BB /* onDemand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onDemand.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C32084925AA7D6B0098AA60 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5C32084625AA7D480098AA60 /* Layout.swift */,
+				5C95CB352590BB5B008B34BB /* Protocols */,
+				5C95CB07259088F9008B34BB /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5C6A136D25A9F7AE00655C42 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +114,7 @@
 				5C95CB0925908902008B34BB /* Models */,
 				5C95CAFC25906AAF008B34BB /* ViewControllers */,
 				5C6A136D25A9F7AE00655C42 /* Cells */,
-				5C95CB352590BB5B008B34BB /* Protocols */,
-				5C95CB07259088F9008B34BB /* Extensions */,
+				5C32084925AA7D6B0098AA60 /* Helpers */,
 				5C95CAE625906829008B34BB /* Assets.xcassets */,
 				5C95CAE825906829008B34BB /* LaunchScreen.storyboard */,
 				5C95CAEB25906829008B34BB /* Info.plist */,
@@ -251,6 +262,7 @@
 				5C95CAE025906827008B34BB /* SceneDelegate.swift in Sources */,
 				5C95CAF725906A90008B34BB /* AccountViewController.swift in Sources */,
 				5CB6EE3225AA0EC800FC2BF9 /* NSObject+Identifier.swift in Sources */,
+				5C32084725AA7D480098AA60 /* Layout.swift in Sources */,
 				5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */,
 				5C95CAF425906A81008B34BB /* ReservationsViewController.swift in Sources */,
 				5C6A136825A9F72800655C42 /* Filter.swift in Sources */,

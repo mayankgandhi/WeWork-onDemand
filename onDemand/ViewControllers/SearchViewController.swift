@@ -41,34 +41,60 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, Storyboa
     performQuery()
   }
 
-  func createPerSectionLayout() -> UICollectionViewLayout {
+//  func createPerSectionLayout() -> UICollectionViewLayout {
+//
+//    let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
+//                                                        layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+//      let columns = sectionIndex == 0 ? 2 : 4
+//      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                            heightDimension: .fractionalHeight(1.0))
+//      let item = NSCollectionLayoutItem(layoutSize: itemSize)
+//      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                             heightDimension: .absolute(250))
+//      let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+//                                                     subitem: item,
+//                                                     count: columns)
+//      let section = NSCollectionLayoutSection(group: group)
+//      return section
+//    }
+//
+//    let config = UICollectionViewCompositionalLayoutConfiguration()
+//    config.interSectionSpacing = 200
+//    config.scrollDirection = .horizontal
+//    layout.configuration = config
+//    return layout
+//  }
 
-    let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
-                                                        layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-      let columns = sectionIndex == 0 ? 2 : 4
-      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                            heightDimension: .fractionalHeight(1.0))
-      let item = NSCollectionLayoutItem(layoutSize: itemSize)
-      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                             heightDimension: .absolute(250))
-      let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                     subitem: item,
-                                                     count: columns)
-      let section = NSCollectionLayoutSection(group: group)
-      return section
-    }
-
-    let config = UICollectionViewCompositionalLayoutConfiguration()
-    config.interSectionSpacing = 200
-    config.scrollDirection = .horizontal
-    layout.configuration = config
+  func generateLayout() -> UICollectionViewLayout {
+    //1
+    let itemSize = NSCollectionLayoutSize(
+      widthDimension: .fractionalWidth(1.0),
+      heightDimension: .fractionalHeight(1.0))
+    let propertyView = NSCollectionLayoutItem(layoutSize: itemSize)
+    propertyView.contentInsets = NSDirectionalEdgeInsets(
+      top: 2,
+      leading: 2,
+      bottom: 2,
+      trailing: 2)
+    //2
+    let groupSize = NSCollectionLayoutSize(
+      widthDimension: .fractionalWidth(2/3),
+      heightDimension: .fractionalHeight(1))
+    let group = NSCollectionLayoutGroup.horizontal(
+      layoutSize: groupSize,
+      subitem: propertyView,
+      count: 1)
+    //3
+    let section = NSCollectionLayoutSection(group: group)
+    let layout = UICollectionViewCompositionalLayout(section: section)
     return layout
   }
+
 
   func layout() {
     view.backgroundColor = .white
 
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createPerSectionLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: generateLayout())
     collectionView.backgroundColor = .systemBackground
     collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
