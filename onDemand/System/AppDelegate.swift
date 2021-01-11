@@ -9,8 +9,18 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var coordinator: MainCoordinator?
+
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // create the main navigation controller to be used for our app
+        let navController = UINavigationController()
+
+        // send that into our coordinator so that it can display view controllers
+        coordinator = MainCoordinator(navigationController: navController)
+
+        // tell the coordinator to take over control
+        coordinator?.start()
         return true
     }
 

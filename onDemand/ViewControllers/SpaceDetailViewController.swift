@@ -10,7 +10,6 @@ import UIKit
 
 /// `SpaceDetailViewController` shows in depth information of the property that was selected.
 class SpaceDetailViewController: UIViewController, Storyboarded {
-  
     weak var coordinator: SearchCoordinator?
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
@@ -27,7 +26,8 @@ class SpaceDetailViewController: UIViewController, Storyboarded {
         imageView.load(url: URL(string: property.imageURL)!)
         titleLabel.text = property.title
         descriptionLabel.text = property.description
-        let annotation = property.getAnnotation()
+
+        let annotation = property.getAnnotation() as! MKAnnotation
         mapView.addAnnotation(annotation)
         mapView.showAnnotations([annotation], animated: true)
     }

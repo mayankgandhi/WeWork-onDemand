@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, Storyboarded {
     enum Section: CaseIterable {
         case main
     }
@@ -17,27 +17,44 @@ class AccountViewController: UIViewController {
         let title: String
     }
 
-    @IBOutlet var accountTableView: UITableView!
+    var accountTableView: UITableView!
     var dataSource: UITableViewDiffableDataSource<Section, Item>!
 
     override func viewDidLoad() {
-        accountTableView.rowHeight = UITableView.automaticDimension
-        accountTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         super.viewDidLoad()
-
-        navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view.
+        layout()
         configureDataSource()
-        generateSnapShot()
+        generateSnapShot(animated: false)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationItem.title = "This"
     }
 }
 
 extension AccountViewController {
+    func layout() {
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        accountTableView = tableView
+        view.addSubview(accountTableView)
+        NSLayoutConstraint.activate([
+            accountTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            accountTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            accountTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            accountTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+    }
+
     func configureDataSource() {
         dataSource = UITableViewDiffableDataSource<Section, Item>(tableView: accountTableView, cellProvider: { (tableView, indexPath, item) -> UITableViewCell? in
-            guard self != nil else { return nil }
-
-            let cell = tableView.dequeueReusableCell(withIdentifier: AccountCell.reuseID, for: indexPath) as! AccountCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AccountCell.identifier, for: indexPath) as! AccountCell
             cell.configure(for: item)
             return cell
         })
@@ -45,7 +62,7 @@ extension AccountViewController {
         dataSource.defaultRowAnimation = .fade
     }
 
-    func generateSnapShot() {
+    func generateSnapShot(animated: Bool = true) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         let properties = [
             Item(systemImage: "person.crop.circle.fill", title: "Profile"),
@@ -55,6 +72,6 @@ extension AccountViewController {
         ]
         snapshot.appendSections([.main])
         snapshot.appendItems(properties)
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: animated)
     }
 }

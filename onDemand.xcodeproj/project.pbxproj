@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C32084725AA7D480098AA60 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C32084625AA7D480098AA60 /* Layout.swift */; };
+		5C6A136825A9F72800655C42 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A136725A9F72800655C42 /* Filter.swift */; };
+		5C6A136B25A9F76800655C42 /* FilterOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */; };
 		5C95CADE25906827008B34BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CADD25906827008B34BB /* AppDelegate.swift */; };
 		5C95CAE025906827008B34BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CADF25906827008B34BB /* SceneDelegate.swift */; };
 		5C95CAE525906827008B34BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C95CAE325906827008B34BB /* Main.storyboard */; };
@@ -23,9 +26,15 @@
 		5C95CB2D2590AA44008B34BB /* SpaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */; };
 		5C95CB302590AAFB008B34BB /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */; };
 		5C95CB392590C202008B34BB /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95CB382590C202008B34BB /* AccountCell.swift */; };
+		5CA7BE2425A618F3001FC014 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */; };
+		5CA7BE2825A61910001FC014 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7BE2725A61910001FC014 /* RootViewController.swift */; };
+		5CB6EE3225AA0EC800FC2BF9 /* NSObject+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6EE3125AA0EC800FC2BF9 /* NSObject+Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C32084625AA7D480098AA60 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		5C6A136725A9F72800655C42 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionCell.swift; sourceTree = "<group>"; };
 		5C95CADA25906827008B34BB /* onDemand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onDemand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C95CADD25906827008B34BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C95CADF25906827008B34BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +53,9 @@
 		5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceDetailViewController.swift; sourceTree = "<group>"; };
 		5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		5C95CB382590C202008B34BB /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5CA7BE2725A61910001FC014 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		5CB6EE3125AA0EC800FC2BF9 /* NSObject+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +69,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C32084925AA7D6B0098AA60 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5C32084625AA7D480098AA60 /* Layout.swift */,
+				5C95CB352590BB5B008B34BB /* Protocols */,
+				5C95CB07259088F9008B34BB /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5C6A136D25A9F7AE00655C42 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
+				5C95CB382590C202008B34BB /* AccountCell.swift */,
+				5C6A136A25A9F76800655C42 /* FilterOptionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		5C95CAD125906827008B34BB = {
 			isa = PBXGroup;
 			children = (
@@ -78,13 +110,11 @@
 			children = (
 				5C95CB0E2590892A008B34BB /* System */,
 				5C95CAE325906827008B34BB /* Main.storyboard */,
-				5C95CB01259077F5008B34BB /* PropertyCell.swift */,
-				5C95CB382590C202008B34BB /* AccountCell.swift */,
-				5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */,
-				5C95CB352590BB5B008B34BB /* Protocols */,
+				5CA7BE2D25A61EB7001FC014 /* Coordinators */,
 				5C95CB0925908902008B34BB /* Models */,
-				5C95CB07259088F9008B34BB /* Extensions */,
 				5C95CAFC25906AAF008B34BB /* ViewControllers */,
+				5C6A136D25A9F7AE00655C42 /* Cells */,
+				5C32084925AA7D6B0098AA60 /* Helpers */,
 				5C95CAE625906829008B34BB /* Assets.xcassets */,
 				5C95CAE825906829008B34BB /* LaunchScreen.storyboard */,
 				5C95CAEB25906829008B34BB /* Info.plist */,
@@ -97,6 +127,7 @@
 			children = (
 				5C95CAF325906A81008B34BB /* ReservationsViewController.swift */,
 				5C95CAF625906A90008B34BB /* AccountViewController.swift */,
+				5CA7BE2725A61910001FC014 /* RootViewController.swift */,
 				5C95CAF925906AA7008B34BB /* SearchViewController.swift */,
 				5C95CB2C2590AA44008B34BB /* SpaceDetailViewController.swift */,
 			);
@@ -107,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				5C95CB0425908583008B34BB /* UIImageView+Load.swift */,
+				5CB6EE3125AA0EC800FC2BF9 /* NSObject+Identifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -115,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				5C95CAFE259074BA008B34BB /* Property.swift */,
+				5C6A136725A9F72800655C42 /* Filter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +168,15 @@
 				5C95CB292590A95F008B34BB /* Storyboarded.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5CA7BE2D25A61EB7001FC014 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				5CA7BE2325A618F3001FC014 /* MainCoordinator.swift */,
+				5C95CB2F2590AAFB008B34BB /* SearchCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,14 +253,20 @@
 				5C95CB0525908583008B34BB /* UIImageView+Load.swift in Sources */,
 				5C95CAFF259074BA008B34BB /* Property.swift in Sources */,
 				5C95CAFA25906AA7008B34BB /* SearchViewController.swift in Sources */,
+				5C6A136B25A9F76800655C42 /* FilterOptionCell.swift in Sources */,
 				5C95CB392590C202008B34BB /* AccountCell.swift in Sources */,
+				5CA7BE2825A61910001FC014 /* RootViewController.swift in Sources */,
 				5C95CB302590AAFB008B34BB /* SearchCoordinator.swift in Sources */,
 				5C95CADE25906827008B34BB /* AppDelegate.swift in Sources */,
 				5C95CB272590A8FC008B34BB /* Coordinator.swift in Sources */,
 				5C95CAE025906827008B34BB /* SceneDelegate.swift in Sources */,
 				5C95CAF725906A90008B34BB /* AccountViewController.swift in Sources */,
+				5CB6EE3225AA0EC800FC2BF9 /* NSObject+Identifier.swift in Sources */,
+				5C32084725AA7D480098AA60 /* Layout.swift in Sources */,
 				5C95CB02259077F5008B34BB /* PropertyCell.swift in Sources */,
 				5C95CAF425906A81008B34BB /* ReservationsViewController.swift in Sources */,
+				5C6A136825A9F72800655C42 /* Filter.swift in Sources */,
+				5CA7BE2425A618F3001FC014 /* MainCoordinator.swift in Sources */,
 				5C95CB2A2590A95F008B34BB /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
