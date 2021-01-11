@@ -47,6 +47,6 @@ class FilterOptionCell: UICollectionViewCell {
   }
 
   func configure(with filter: Filter) {
-    titleLabel.text = filter.name
+    titleLabel.text = String(describing: filter.type)
   }
 }

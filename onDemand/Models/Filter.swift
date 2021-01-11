@@ -9,7 +9,7 @@ import Foundation
 
 struct Filter: Hashable {
   let id = UUID()
-  let name: String
+  let type: PropertyType
 
-  static let allFilters = [Filter(name: "Filter 1"), Filter(name: "Filter 2")]
+  static let allFilters = [Filter(type: .location), Filter(type: .room)]
 }
