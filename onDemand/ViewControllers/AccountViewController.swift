@@ -27,11 +27,16 @@ class AccountViewController: UIViewController, Storyboarded {
         configureDataSource()
         generateSnapShot(animated: false)
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationItem.title = "This"
+    }
 }
 
 extension AccountViewController {
     func layout() {
-        navigationItem.title = "List"
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)

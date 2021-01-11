@@ -63,42 +63,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rfx-EF-KLr">
-                                <rect key="frame" x="-20" y="44" width="454" height="838"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="feg-Vw-Dsk">
+                                <rect key="frame" x="0.0" y="49" width="414" height="798"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="feg-Vw-Dsk">
-                                        <rect key="frame" x="20" y="20" width="414" height="798"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYd-n6-WgH">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipl-hK-jUt">
-                                                <rect key="frame" x="0.0" y="57" width="414" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i90-f9-V7P">
-                                                <rect key="frame" x="0.0" y="101" width="414" height="259"/>
-                                            </imageView>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="btF-ge-zre">
-                                                <rect key="frame" x="0.0" y="380" width="414" height="418"/>
-                                            </mapView>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYd-n6-WgH">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipl-hK-jUt">
+                                        <rect key="frame" x="0.0" y="57" width="414" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i90-f9-V7P">
+                                        <rect key="frame" x="0.0" y="101" width="414" height="259"/>
+                                    </imageView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="btF-ge-zre">
+                                        <rect key="frame" x="0.0" y="380" width="414" height="418"/>
+                                    </mapView>
                                 </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="cwU-5M-MxE"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="cUn-YK-bOM"/>
-                            </scrollView>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zEe-LL-obI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Rfx-EF-KLr" firstAttribute="leading" secondItem="eKB-P3-F4K" secondAttribute="leading" constant="20" symbolic="YES" id="58R-Zc-nVy"/>
-                            <constraint firstAttribute="trailing" secondItem="Rfx-EF-KLr" secondAttribute="trailing" constant="20" symbolic="YES" id="jfO-E9-meu"/>
+                            <constraint firstItem="feg-Vw-Dsk" firstAttribute="centerY" secondItem="eKB-P3-F4K" secondAttribute="centerY" id="Gy8-f6-ifx"/>
+                            <constraint firstItem="feg-Vw-Dsk" firstAttribute="leading" secondItem="eKB-P3-F4K" secondAttribute="leading" id="Mej-DU-2Bt"/>
+                            <constraint firstAttribute="trailing" secondItem="feg-Vw-Dsk" secondAttribute="trailing" id="TAN-Aj-syO"/>
+                            <constraint firstItem="feg-Vw-Dsk" firstAttribute="top" secondItem="zEe-LL-obI" secondAttribute="top" constant="5" id="X3r-Ss-Foc"/>
                         </constraints>
                     </view>
                     <connections>

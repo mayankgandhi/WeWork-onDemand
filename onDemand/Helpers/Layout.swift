@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 // MARK: - Layout
-public extension CGFloat {
-  /// contentInset in UICollectionViewCompositionalLayout
-  static var contentInset: CGFloat { 10 }
 
+public extension CGFloat {
+    /// contentInset in UICollectionViewCompositionalLayout
+    static var contentInset: CGFloat { 10 }
 }

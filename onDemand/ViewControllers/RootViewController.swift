@@ -15,7 +15,6 @@ class RootViewController: UITabBarController, Storyboarded {
         view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
         addTabBarItems()
-        print("We out here \(self)")
     }
 
     private func addTabBarItems() {

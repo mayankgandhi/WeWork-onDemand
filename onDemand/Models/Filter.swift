@@ -8,8 +8,7 @@
 import Foundation
 
 struct Filter: Hashable {
-  let id = UUID()
-  let type: PropertyType
-
-  static let allFilters = [Filter(type: .location), Filter(type: .room)]
+    let id = UUID()
+    let type: PropertyType
+    let selected: Bool
 }
