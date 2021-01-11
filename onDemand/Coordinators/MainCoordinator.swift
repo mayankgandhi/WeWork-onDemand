@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+/// MainCoordinator - instantiates the root view controller in the SceneDelegate.
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
