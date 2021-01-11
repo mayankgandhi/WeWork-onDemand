@@ -1,17 +1,17 @@
 # WeWork-onDemand
 
-Branch *ProgrammaticUI* Work in progress
-
 This project is a basic MVP version of the Wework OnDemand App. 
 
 On a very high level, It contains 3 main tabs:
-  - Search - Where users can look for coworking places to reserve
-  - Reservations - Where users can track existing/past/upcoming reservations
-  - Profile - Where users can view/edit their credentials and other information
+  - Search(SearchViewController) - Where users can look for coworking places to reserve
+  - Reservations(ReservationsViewController) - Where users can track existing/past/upcoming reservations
+  - Profile(ProfileViewController) - Where users can view/edit their credentials and other information
   
-This project uses Storyboard to build the structure of the user interface and the coordinator pattern to allow coordination in the SearchViewController.
-It is an extremely simplified version of the OnDemand app where the mapView and the collectionview items are hooked and selecting any property will show a detailed view.
+This project uses Coordinator Pattern to push the root view controller. Each of the viewControllers in the TabView are programmatically configured. The SearchViewController itself consists of 2 major components - a MapView and a CollecionView to depict the relevant Place or Room. The data for the viewControllers are programmatically coded. In a production scenario - the Codable Models can be used to serialize from the JSON.
 
+The CollectionView consists of 2 sections: filters and properties. Filter is the option to select from between a Place and room. Another section of extra filters can be added to show date selector and other filters. The Datasource for the collectionView uses the new DiffableDataSource, Dequeuing reusable Cells, SectionSnapshots which makes it very performant.
+
+The images in the demo are all stock photos that are loaded using a random URL.
 
 # The images used on the app are stock images that are randomly generated with a third party API. 
 ![](ezgif-3-a0679dc3255f.gif)
